@@ -1,0 +1,155 @@
+/* Header section's styles are mentioned from here */
+
+.headerSection{
+    height:70px;
+    background-color: #000000;
+
+    padding:0;
+
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.logo{
+    background:#000000;
+    border: 0.5px solid #718fbf;
+    border-radius: 50%;
+    padding:5px;
+    font-family:impact;
+}
+
+.nav-header-list{
+
+    justify-content:bottom;
+    width:200px;
+    height:inherit;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.box-of-login{
+    border:1px solid black;
+    color:black;
+    display:inline;
+    padding:3px;
+
+}
+.container-fluid{
+    padding-left:0;
+    padding-right:0;
+}
+
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+    color:black;
+    padding:2px;
+    border:1px solid white;
+    border-radius:5px;
+    background:white;
+}
+
+.navbar-brand:hover{
+    color:white;
+    font-family:helvetica;
+    padding:2px;
+    background:black;
+    border-radius:5px;
+}
+
+.logo-brand{
+    width:45px;
+    height:40px;
+}
+
+.login-brand{
+    width:45px;
+    height:40px;
+    border-radius:50%;
+}
+
+.btn-group, .btn-secondary, .dropdown-toggle {
+    color: #ffffff;
+    background-color: black;
+    border: none;
+    padding: 5px 5px;
+}
+
+/* Header section styles end here */
+
+
+
+/* dongle section styles starts here */
+
+blink {
+    -webkit-animation: 1.25s linear infinite condemned_blink_effect;
+    animation: 1.25s linear infinite condemned_blink_effect;
+}
+
+@keyframes condemned_blink_effect {
+    0% { visibility: hidden; }
+    50% { visibility: hidden; }
+    100% { visibility: visible; }
+}
+table{
+
+    background-color:azure;
+    padding-left:20px;
+
+
+    padding-top:10px;
+    margin: 0 auto;
+    width:500px;
+    border-style:groove;
+    border-radius:10px;
+    padding-bottom: 20px;
+    margin-top:25px;
+
+}
+center{
+    margin:0 auto;
+}
+input[type=submit] {
+    width: 7em;  height: 2em;
+}
+.new-align{
+    margin-top:25px;
+}
+/* dongle section styles ends here */
+
+
+
+
+/*Footer section styles start here */
+.page-footer {
+    background-color: #000000;
+    width:100%;
+    padding: 20px 0 40px;
+    left: 0;
+    bottom: 0;
+}
+
+.footer-copyright {
+    color: #666;
+
+}
+
+
+#footer-image{
+    width:30px;
+    height:30px;
+    margin-right: 1em;
+}
+
+.nav-link:hover{
+    color:#ffffff;
+}
+
+/*Footer section style end here */
+

@@ -1,0 +1,221 @@
+
+.headerSection{
+    height:70px;
+    background-color: #000000;
+    padding:0;
+
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.logo{
+    background:#000000;
+    border: 0.5px solid #718fbf;
+    border-radius: 50%;
+    padding:5px;
+    font-family:impact;
+}
+
+.nav-header-list{
+
+    justify-content:bottom;
+    width:200px;
+    height:inherit;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.box-of-login{
+    border:1px solid black;
+    color:black;
+    display:inline;
+    padding:3px;
+
+}
+.container-fluid{
+    padding-left:0;
+    padding-right:0;
+}
+
+/* Header section's styles are mentioned from here */
+
+.headerSection{
+    height:70px;
+    background-color: #000000;
+
+    padding:0;
+
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.logo{
+    background:#000000;
+    border: 0.5px solid #718fbf;
+    border-radius: 50%;
+    padding:5px;
+    font-family:impact;
+}
+
+.nav-header-list{
+
+    justify-content:center;
+    width:200px;
+    height:inherit;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.box-of-login{
+    border:1px solid black;
+    color:black;
+    display:inline;
+    padding:3px;
+
+}
+.container-fluid{
+    padding-left:0;
+    padding-right:0;
+}
+
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+    color:black;
+    padding:2px;
+    border:1px solid white;
+    border-radius:5px;
+    background:white;
+}
+
+.navbar-brand:hover{
+    color:white;
+    font-family:helvetica;
+    padding:2px;
+    background:black;
+    border-radius:5px;
+}
+
+.logo-brand{
+    width:45px;
+    height:40px;
+}
+
+.login-brand{
+    width:45px;
+    height:40px;
+    border-radius:50%;
+}
+
+.btn-group, .btn-secondary, .dropdown-toggle {
+    color: #ffffff;
+    background-color: black;
+    border: none;
+    padding: 5px 5px;
+}
+
+/* Header section styles end here */
+html,body{
+
+    height: 80%;
+    background-image: url("../images/credit.png");
+    background-repeat: no-repeat;
+
+}
+
+.container{
+    height: 120%;
+    align-content: center;
+}
+
+.card{
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 700px;
+
+}
+.card-header
+{
+    color:#010D16;
+    background-color:#65B6F3;
+}
+.card-body{
+    background-color: #D7E9F6;
+}
+.input-group-prepend span{
+    width: 50px;
+    background-color:#65B6F3;
+    color: black !important;
+    border:0 !important;
+    display:inline-block;
+
+
+}
+
+
+input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+
+}
+
+
+
+.pay_btn{
+    color: black;
+    background-color: #1493F5;
+    float: right;
+    position: absolute;
+    font-weight: bold;
+
+}
+
+.pay_btn:hover{
+    color: black;
+    background-color:#66CDAA;
+}
+
+
+
+/*Footer section styles start here */
+
+/*--- footer ---*/
+
+.page-footer {
+
+    background-color: #000000;
+
+    padding: 20px 0 40px;
+}
+
+.footer-copyright {
+    color: #666;
+
+}
+
+#footer-image{
+    width:30px;
+    height:30px;
+    margin-right: 1em;
+}
+
+
+.nav-link:hover{
+    color:#ffffff;
+}
+
+
+

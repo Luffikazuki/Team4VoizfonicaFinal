@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<div th:each="i :${planDetails}">-->
+<!--    <form method="post" th:object="${planDetail}">-->
+
+<!--        <span th:text="${i.planName}">Plan</span>-->
+<!--            <input type="hidden" th:value="${i.planName}" th:name="planName" th:id="planName"/>-->
+
+<!--            <span th:if="@{#fields.hasErrors(id)}" th:errors="*{id}">Errors</span>-->
+<!--        <input type="Submit" Value="select"/>-->
+<!--    </form>-->
+
+<!--</div>-->
+
+<table border="2">
+    <caption>3G</caption>
+    <tr>
+        <th>Plan Name</th>
+        <th>Data</th>
+        <th>Choose</th>
+    </tr>
+    <tr th:each="i :${threeG}">
+        <td th:text="${i.planName}">Plan Name</td>
+        <td th:text="${i.planData}">Data</td>
+        <td th:text="${i.planValidity}">Validity</td>
+        <td><a th:href="@{'/chooseplan/' + ${i.id}}">Select</a></td>
+    </tr>
+</table>
+
+<table border="2">
+    <caption>4G</caption>
+    <tr>
+        <th>Plan Name</th>
+        <th>Data</th>
+        <th>Choose</th>
+    </tr>
+    <tr th:each="i :${fourG}">
+        <td th:text="${i.planName}">Plan Name</td>
+        <td th:text="${i.planData}">Data</td>
+        <td th:text="${i.planValidity}">Validity</td>
+        <td><a th:href="@{'/chooseplan/' + ${i.id}}">Select</a></td>
+    </tr>
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device-width , initial-scale = 1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>Plans | VoizFonica</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/planStyle.css}">
+</head>
+
+<body> <!--Start of body-->
+
+
+<!-- Header / Navigation Starts-->
+<b>
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-sm bg-dark ">
+
+
+            <a class="navbar-brand" href="/">
+                <img class="logo-brand" src="images/logo.png" alt="VoizFonica" title="VoizFonica"/>
+            </a>
+
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse nav-header-list" id="main-navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="/" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="eStore">EStore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="plans">Plans</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="MNP">MNP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="aboutus">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="customerComplaint">Help</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                    <img class="login-brand" src="images/headerLogin.png" alt="Login/SignUP" title="Login/SignUP" width="10"  height ="10">
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                    <a class="dropdown-item" href = "loginPage">Login</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href = "customerRegister" >Sign Up</a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</b>
+
+<!--Header / Navigation ends here -->
+<!--plan -->
+<br>
+<div class="w3-center">
+
+    <h3 class="w3-xxxlarge w3-animate-bottom">VoizFoinca's Diversity of Plans</h3>
+    <div class="w3-padding-32">
+
+    </div>
+</div>
+
+<div class="w3-row-padding w3-center w3-margin-top">
+    <div class="w3-third">
+        <div class="w3-card w3-container" style="min-height:460px">
+            <h3><b>Postpaid</b></h3><br>
+            <a href = "postPaid"><img src="images/postpaid.png"  style="width:40%" height="150px"></a>
+            <br><br>
+            <p>Data - Rollover</p>
+            <p>28 Cycle bill</p>
+            <p>0.5p per min</p>
+            <p>0.8p per SMS</p>
+        </div>
+    </div>
+
+    <div class="w3-third">
+        <div class="w3-card w3-container" style="min-height:460px">
+            <h3><b>Prepaid </b></h3><br>
+            <a href = "prePaid"> <img src="images/prepaid.png" style="width:35%" height="140px"></a>
+            <br><br>
+            <p>Easy Recharge</p>
+            <p>0.5p per min</p>
+            <p>Free 100 SMS</p>
+            <p>Unlimited Calls and Data</p>
+        </div>
+    </div>
+
+    <div class="w3-third">
+        <div class="w3-card w3-container" style="min-height:460px">
+            <h3><b>Dongle</b></h3><br>
+            <a href = "dongle"> <img src="images/dongle.jpg" style="width:35%" height="140px"></a>
+            <br><br>
+            <p>First 3 months free of data </p>
+            <p>High Speed Data</p>
+            <p>Equal across platforms</p>
+            <p>Equal across devices</p>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<!-- Footer -->
+<b>
+
+    <footer class="page-footer">
+        <div class="container">
+
+
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="investors">Investors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="careers">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Ppolicy">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="business">Business</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <br>
+
+
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a href="https://www.twitter.com/"><img id="footer-image" src = "images/twitter_icon.jpg"> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.instagram.com/"> <img id="footer-image" src = "images/instagram_icon.jpg" ></a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.facebook.com/"> <img id="footer-image" src = "images/facebook_icon.png"> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.youtube.com/">  <img id="footer-image" src = "images/youtube_icon.png" > </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/"> <img id="footer-image" src = "images/link_icon.png" href="#"></a>
+                </li>
+            </ul>
+            <br>
+            <br><br>
+            <div class="footer-copyright text-center">© 2019 VoizFonica. All Rights Reserved </div>
+        </div>
+    </footer>
+
+
+
+    <!-- CDN's of js and jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body> <!--End of body -->
+
+</html>

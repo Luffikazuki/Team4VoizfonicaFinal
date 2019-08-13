@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MNP | VoizFonica</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/MNP.css}">
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css"/></head>
+
+<body> <!--Start of body-->
+
+<!-- Header / Navigation Starts-->
+<b>
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-sm bg-dark ">
+
+
+            <a class="navbar-brand" href="index">
+                <img class="logo-brand" src="images/logo.png" alt="VoizFonica" title="VoizFonica"/>
+            </a>
+
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse nav-header-list" id="main-navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="index" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="billRecharge" >Pay/Recharge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="eStore">EStore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="plans">Plans</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="MNP">MNP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="aboutus">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="customerComplaint">Help</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                    <img class="login-brand" src="images/headerLogin.png" alt="Login/SignUP" title="Login/SignUP" width="10"  height ="10">
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                    <a class="dropdown-item" href = "loginPage">Login</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href = "customerRegister" >Sign Up</a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</b>
+
+<!--Header / Navigation ends here -->
+<!-- MNP -->
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 formstyle">
+
+        <form method="post" th:object="${mnpdomain}" class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-6" for="mobNumber">Mobile Number</label>
+                <div class="col-sm-10">
+                    <input class = "form-control" autofocus required type="text"  id="mobNumber" placeholder="Enter your Mobile No." maxlength="10" th:field="*{mobNumber}">
+                    <span class="badge badge-danger"
+                          th:if="${#fields.hasErrors('mobNumber')}" th:errors="*{mobNumber}">Enter a valid number</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-6" for="simNumber">SIM Number</label>
+                <div class="col-sm-10">
+                    <input class = "form-control" required type="text"  id="simNumber" placeholder="Enter your SIM Number" maxlength="25" th:field="*{simNumber}">
+                    <span class="badge badge-danger"
+                          th:if="${#fields.hasErrors('simNumber')}" th:errors="*{simNumber}">Enter a valid number</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-6" for="portKey">Port Key</label>
+                <div class="col-sm-10">
+                    <input class = "form-control" required type="text"  id="portKey" placeholder="Enter your Port Key" maxlength="15" th:field="*{portKey}">
+                    <span class="badge badge-danger"
+                          th:if="${#fields.hasErrors('portKey')}" th:errors="*{portKey}">Enter a valid number</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary btn-sm-2">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 formstyle">
+
+        <marquee direction="up" height="300" scrollamount="2" scrolldelay="170"  onmousedown="this.stop()" onmouseover="this.stop()" onmousemove="this.stop()" onmouseout="this.start()" vspace="15">
+
+            <p class="three"><span class="sidelink">
+						Switch to VoizFonica, retain your number, just three steps to go!!!<br>
+						Around 3.8m subscribers are moving to VoizFonica every year!!<br>
+						Get 20GB extra for six months!!!<br>
+						Get 100% Cashback on recharge of Rs.399/-!!!<br>
+						Special annual plan @1299!!!<br>
+						Assured wake up calls!!! <br>
+						Rs.299/- 84GB 240 days!!! Only for MNP customers!!<br>
+						Exclusive 10% offers for Global attractions<br>
+						Top up for 30 // Free upto 30GB<br>
+
+
+
+            </p></span></marquee>
+    </div>
+</div>
+
+<!-- MNP command ends -->
+<!-- Footer starts -->
+<b><footer class="page-footer">
+    <div class="container">
+
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="investors">Investors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="careers">Careers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Ppolicy">Privacy Policy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="business">Business</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <br>
+
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a href="https://www.twitter.com/"><img id="footer-image" src = "images/twitter_icon.jpg"> </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.instagram.com/"> <img id="footer-image" src = "images/instagram_icon.jpg" ></a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.facebook.com/"> <img id="footer-image" src = "images/facebook_icon.png"> </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.youtube.com/">  <img id="footer-image" src = "images/youtube_icon.png" > </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.linkedin.com/"> <img id="footer-image" src = "images/link_icon.png" href="#"></a>
+            </li>
+        </ul>
+        <br>
+        <hr>
+        <div class="footer-copyright text-center">© 2019 VoizFonica. All Rights Reserved </div>
+</footer></b>
+
+
+
+
+
+
+<!-- CDN's of js and jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body> <!--End of body -->
+
+</html>

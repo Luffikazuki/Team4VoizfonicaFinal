@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <title>User Dashboard | VoizFonica </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="dashboard">Dashboard</a></li>
+                <li class="active"><a href="#">Profile</a></li>
+                <li><a href="newConnection">New Connection</a></li>
+                <li><a href="unsubscribe">Unsubsricbe</a></li>
+                <li><a href="/">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <br>
+            <img src = "images/logo-small.png" height = "150px" width = "150px" > <br><br>
+            <ul class="nav nav-pills nav-stacked">
+                <li ><a href="dashboard">Dashboard</a></li>
+                <li class="active"><a href="#">Profile</a></li>
+                <li><a href="newConnection">New Connection</a></li>
+                <li><a href="unsubscribe">Unsubsricbe</a></li>
+                <li><a href="/">Logout</a></li>
+
+            </ul><br>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-14 col-sm-8 col-md-8">
+                    <div class="well">
+                        <div class="row">
+
+                            <div class="col-sm-8 col-md-14">
+                                <h3 style="display:inline-block"> Hi! </h3>
+                                <h3 th:each="u: ${user}" th:text="${u.userName}" th:name="userName" th:id="userName"  style="display:inline-block">
+                                </h3>
+                                <br>
+                                <hr class="my-20"><br><br>
+                                <div th:each="u: ${user}">
+                                    <i class="glyphicon glyphicon-user"></i> Name:&nbsp;&nbsp;
+                                    <div th:text="${u.userName}" th:name="userName" th:id="userName"  style="display:inline-block"/></div>
+                                <br>
+                                <div th:each="u: ${user}" >
+                                    <i class="glyphicon glyphicon-envelope"></i> Email:&nbsp;&nbsp;
+                                    <div  th:text="${u.emailId}" th:name="emailId" th:id="emailId"  style="display:inline-block"></div>
+                                    <br><br>
+                                    <div th:each="u: ${user}" >
+                                        <i class="glyphicon glyphicon-book"></i> AadharNumber:&nbsp;&nbsp;
+                                        <div  th:text="${u.aadharNumber}" th:name="aadharNumber" th:id="aadharNumber"  style="display:inline-block"></div>
+                                        <br><br>
+
+                                        <div th:each="u: ${user}" >
+                                            <i class="glyphicon glyphicon-list-alt"></i> PanNumber:&nbsp;&nbsp;
+                                            <div  th:text="${u.panNumber}" th:name="panNumber" th:id="panNumber"  style="display:inline-block"></div>
+                                            <br><br>
+
+                                            <div th:each="u: ${user}" >
+                                                <i class="glyphicon glyphicon-earphone"></i> ContactNumber:&nbsp;&nbsp;
+                                                <div  th:text="${u.contactNumber}" th:name="contactNumber" th:id="contactNumber"  style="display:inline-block"></div>
+                                                <br><br>
+                                                <div th:each="u: ${user}" >
+                                                    <i class="glyphicon glyphicon-map-marker"></i> Address:&nbsp;&nbsp;
+                                                    <div  th:text="${u.address}" th:name="address" th:id="address"  style="display:inline-block"></div>
+                                                    <br><br>
+                                                    <div th:each="u: ${user}" >
+                                                        <i class="glyphicon glyphicon glyphicon-phone"></i> Plan:&nbsp;&nbsp;
+                                                        <div  th:text="${u.prePaidPlan}" th:name="prePaidPlan" th:id="prePaidPlan"
+                                                              th:if="${u.prePaidPlan} =='prePaid' "style="display:inline-block"></div>
+                                                        <div  th:text="${u.postPaidPlan}" th:name="postPaidPlan" th:id="postPaidPlan"
+                                                              th:if="${u.postPaidPlan} =='postPaid' "style="display:inline-block"></div>
+                                                        <div  th:text="${u.donglePlan}" th:name="donglePlan" th:id="donglePlan"
+                                                              th:if="${u.donglePlan} =='dongle' "style="display:inline-block"></div>
+                                                        <br><br>
+
+                                                        <hr class="my-20">
+                                                        <br>
+                                                        Do you want to edit your profile?  &nbsp;&nbsp;
+                                                        <a href="profileEdit"><button type="button" class="btn btn-primary">Click here</button></a>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>
