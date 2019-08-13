@@ -37,10 +37,13 @@ public class UserCredential {
 
     private String prePaidPlan;
     private String prePaidPlanId;
+    private String prePaidPlanNumber;
     private String postPaidPlan;
     private String postPaidPlanId;
+    private String postPaidPlanNumber;
     private String donglePlan;
     private String donglePlanId;
+    private String donglePlanNumber;
 
     @NotEmpty(message = "Plese provide your address")
     @Length(max = 100,min = 20)
@@ -184,6 +187,30 @@ public class UserCredential {
 
     public void setSecurityAnswer(String securityAnswer) {
         this.securityAnswer = securityAnswer;
+    }
+
+    public String getPrePaidPlanNumber() {
+        return prePaidPlanNumber;
+    }
+
+    public void setPrePaidPlanNumber(String prePaidPlanNumber) {
+        this.prePaidPlanNumber = prePaidPlanNumber;
+    }
+
+    public String getPostPaidPlanNumber() {
+        return postPaidPlanNumber;
+    }
+
+    public void setPostPaidPlanNumber(String postPaidPlanNumber) {
+        this.postPaidPlanNumber = postPaidPlanNumber;
+    }
+
+    public String getDonglePlanNumber() {
+        return donglePlanNumber;
+    }
+
+    public void setDonglePlanNumber(String donglePlanNumber) {
+        this.donglePlanNumber = donglePlanNumber;
     }
 }
 

@@ -1,7 +1,5 @@
 package com.example.voizfonica.controller;
 
-
-
 import com.example.voizfonica.data.*;
 import com.example.voizfonica.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/payment")
 @SessionAttributes({"subscriptionDetail","login"})
 public class PaymentController {
 
@@ -26,6 +22,7 @@ public class PaymentController {
     private PlanDetailRepository planDetailRepository;
     private DongleRepository dongleRepository;
     private UserCredentialRepository userCredentialRepository;
+    private PlanDetailHistoryRepository planDetailHistoryRepository;
 
     @Autowired
     public PaymentController(PaymentRepository paymentRepository,
@@ -34,7 +31,8 @@ public class PaymentController {
                              PostPaidRepository postPaidRepository,
                              PlanDetailRepository planDetailRepository,
                              DongleRepository dongleRepository,
-                             UserCredentialRepository userCredentialRepository) {
+                             UserCredentialRepository userCredentialRepository,
+                             PlanDetailHistoryRepository planDetailHistoryRepository) {
         this.paymentRepository = paymentRepository;
         this.subscriptionDetailRepository = subscriptionDetailRepository;
         this.prePaidRepository = prePaidRepository;
@@ -42,6 +40,7 @@ public class PaymentController {
         this.planDetailRepository = planDetailRepository;
         this.dongleRepository = dongleRepository;
         this.userCredentialRepository = userCredentialRepository;
+        this.planDetailHistoryRepository = planDetailHistoryRepository;
     }
 
     @ModelAttribute(name = "payment")
@@ -49,14 +48,105 @@ public class PaymentController {
         return new Payment();
     }
 
-    @GetMapping
+    /*  Get Mapping in payment controller for prepaid , postpaid and dongle  */
+    //////
+    /////
+    /////
+
+    @GetMapping("/payment")
     public String showPaymentForm(Model model) {
         Payment payment = new Payment();
         model.addAttribute("payment", payment);
+        model.addAttribute("changetopostpaid","no");
         return "payment";
     }
+    /*  Get Mapping in payment controller prepaid to post paid   */
+    //////
+    /////
+    /////
 
-    @PostMapping
+    @GetMapping("/payments")
+    public String showPaymentForPretoPost(Model model){
+        model.addAttribute("payment",new Payment());
+        model.addAttribute("changetopostpaid","yes");
+        return "payment";
+    }
+    /*  Post Mapping in payment controller prepaid to post paid   */
+    //////
+    /////
+    /////
+    @PostMapping("/payments")
+    public String processPaymentFor(@Valid Payment payment,
+                                    Errors errors,
+                                    @ModelAttribute SubscriptionDetail subscriptionDetail,
+                                    Model model,
+                                    @ModelAttribute Login login){
+        if (errors.hasErrors()) {
+            return "payment";
+        }else{
+            paymentRepository.save(payment);
+            subscriptionDetail.setPayment(payment);
+            subscriptionDetail.setUserId(login.getId());
+            PlanDetail planDetail = new PlanDetail();
+            planDetail.setUserId(subscriptionDetail.getUserId()); //user id set
+            planDetail.setPlanId(subscriptionDetail.getPlandId()); //plan id set
+            planDetail.setProductId(subscriptionDetail.getProductId()); // product id set
+            planDetail.setStartDate(subscriptionDetail.getPayment().getPaymentDate()); // plan start date set
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(subscriptionDetail.getPayment().getPaymentDate());
+            String validity;
+            String data;
+            String amountPaid;
+            String planType;
+            Optional<PostPaid> postPaid = postPaidRepository.findById(subscriptionDetail.getPlandId());
+            validity = postPaid.get().getValidity();
+            data = postPaid.get().getBenefits();
+            amountPaid = postPaid.get().getPostMoney();
+            planType = postPaid.get().getType();
+            planDetail.setValidity(validity); // validity set
+            planDetail.setAmountPaid(amountPaid); // amountPaid set
+            planDetail.setPlanType(planType); // planType set
+            subscriptionDetail.setPlanPrice(amountPaid); // plan price set
+            char[] validityChar = validity.toCharArray();
+            int validityNumber = validityChar[0] - '0';
+            for(int i=1;i<validityChar.length;i++){
+                if(Character.isDigit(validityChar[i])){
+                    validityNumber=validityNumber*10;
+                    validityNumber=validityNumber+validityChar[i]-'0';
+                }
+            }
+
+            calendar.add(Calendar.DAY_OF_MONTH,validityNumber);
+            planDetail.setEndDate(calendar.getTime());
+            planDetail.setData(data);
+            planDetail.setRemainingData(data);
+            subscriptionDetailRepository.save(subscriptionDetail);
+            Optional<UserCredential>  userCredential = userCredentialRepository.findById(login.getId());
+            userCredential.get().setPostPaidPlan("postPaid");
+            userCredential.get().setPrePaidPlan("null");
+            Optional<PlanDetail> planDetail1 = planDetailRepository.findById(userCredential.get().getPrePaidPlanId());
+            savePlanHistory(planDetail1.get());
+            planDetailRepository.delete(planDetail1.get());
+            userCredential.get().setPrePaidPlanId("null");
+            userCredential.get().setPostPaidPlanNumber(userCredential.get().getPrePaidPlanNumber());
+            userCredential.get().setPrePaidPlanNumber("null");
+            planDetail.setGeneratedNumber(userCredential.get().getPostPaidPlanNumber());
+            planDetailRepository.save(planDetail);
+            userCredential.get().setPostPaidPlanId(planDetail.getId());
+            userCredentialRepository.save(userCredential.get());
+            model.addAttribute("paymentMade","yes");
+            login.setPassword(planDetail.getId());
+            model.addAttribute("login",login);
+            return "payment";
+
+
+        }
+    }
+    /*  Post Mapping in payment controller for prepaid , postpaid and dongle  */
+    //////
+    /////
+    /////
+    @PostMapping("/payment")
     public String processPaymentFrom(@Valid Payment payment, Errors errors,
                                      @ModelAttribute SubscriptionDetail subscriptionDetail, Model model,
                                      @ModelAttribute Login login) {
@@ -142,17 +232,40 @@ public class PaymentController {
             subscriptionDetailRepository.save(subscriptionDetail);
             if(productId.equals("prePaid")){
                 userCredential.get().setPrePaidPlanId(planDetail.getId());
+                userCredential.get().setPrePaidPlanNumber(planDetail.getGeneratedNumber());
                 userCredentialRepository.save(userCredential.get());
             }else if(productId.equals("postPaid")){
                 userCredential.get().setPostPaidPlanId(planDetail.getId());
+                userCredential.get().setPostPaidPlanNumber(planDetail.getGeneratedNumber());
                 userCredentialRepository.save(userCredential.get());
             }else{
                 userCredential.get().setDonglePlanId(planDetail.getId());
+                userCredential.get().setDonglePlanNumber(planDetail.getGeneratedNumber());
                 userCredentialRepository.save(userCredential.get());
             }
             model.addAttribute("paymentMade","yes");
+            login.setPassword(planDetail.getId());
+            model.addAttribute("login",login);
             return "payment";
             //return "redirect:/success";
         }
+    }
+
+    public void savePlanHistory(PlanDetail plan)
+    {
+        PlanDetailHistory planHistory=new PlanDetailHistory();
+        planHistory.setAmountPaid(plan.getAmountPaid());
+        planHistory.setData(plan.getData());
+        planHistory.setEndDate(plan.getEndDate());
+        planHistory.setGeneratedNumber(plan.getGeneratedNumber());
+        planHistory.setId(plan.getId());
+        planHistory.setPlanId(plan.getPlanId());
+        planHistory.setPlanType(plan.getPlanType());
+        planHistory.setProductId(plan.getProductId());
+        planHistory.setRemainingData(plan.getRemainingData());
+        planHistory.setStartDate(plan.getStartDate());
+        planHistory.setUserId(plan.getUserId());
+        planHistory.setValidity(plan.getValidity());
+        planDetailHistoryRepository.save(planHistory);
     }
 }

@@ -35,7 +35,7 @@ public class DashBoardController {
         return new Login();
     }
 
-    @GetMapping("/dashboard")
+    @GetMapping("dashboard")
     public String showDashBoard(@ModelAttribute Login login,Model model) {
         if (login.getUserName().isEmpty()) {
             return "/error101";
@@ -74,6 +74,7 @@ public class DashBoardController {
                 }else{
                     model.addAttribute("hasDonglePlan","no");
                 }
+
 
                 return "/dashboard";
             }

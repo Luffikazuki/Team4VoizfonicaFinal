@@ -29,12 +29,13 @@ public class SuccessController {
     }
     @GetMapping("/success")
     public String showSuccess(@ModelAttribute Login login, Model model){
-        model.addAttribute("login",login);
-        List<PlanDetail> planDetails = planDetailRepository.findByUserId(login.getId());
+
         Optional<UserCredential> userCredential = userCredentialRepository.findById(login.getId());
+        Optional<PlanDetail> planDetail = planDetailRepository.findById(login.getPassword());
+        login.setPassword("null");
+        model.addAttribute("login",login);
         model.addAttribute("userCredential",userCredential.get());
-        PlanDetail planDetail = planDetails.get(0);
-        model.addAttribute("planDetail",planDetail);
+        model.addAttribute("planDetail",planDetail.get());
         return "/success";
     }
 }

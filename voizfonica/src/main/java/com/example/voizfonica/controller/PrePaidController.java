@@ -63,6 +63,20 @@ public class PrePaidController {
         SubscriptionDetail subscriptionDetail = new SubscriptionDetail();
         subscriptionDetail.setProductId("postPaid");
         model.addAttribute("subscriptionDetail",subscriptionDetail);
+        model.addAttribute("changetopostpaid","no");
+        return "postPaid";
+    }
+
+    @GetMapping("changetopostpaid")
+    public String processRequest(Model model){
+        List<PostPaid> threeG = postPaidRepository.findByType("3G");
+        List<PostPaid> fourG = postPaidRepository.findByType("4G");
+        model.addAttribute("threeG",threeG);
+        model.addAttribute("fourG",fourG);
+        SubscriptionDetail subscriptionDetail = new SubscriptionDetail();
+        subscriptionDetail.setProductId("postPaid");
+        model.addAttribute("subscriptionDetail",subscriptionDetail);
+        model.addAttribute("changetopostpaid","yes");
         return "postPaid";
     }
 
@@ -72,6 +86,7 @@ public class PrePaidController {
         List<PostPaid> fourG = postPaidRepository.findByType("4G");
         model.addAttribute("threeG",threeG);
         model.addAttribute("fourG",fourG);
+        model.addAttribute("changetopostpaid","no");
         return "postPaid";
     }
 
@@ -110,6 +125,15 @@ public class PrePaidController {
         subscriptionDetail.setPlandId(planId);
         model.addAttribute("subscriptionDetail",subscriptionDetail);
         return "redirect:/payment";
+    }
+
+    @RequestMapping(value = "/changetopostpaid/{planId}", method= RequestMethod.GET)
+    public String updateSubscriptionChangeToPostPaid(@PathVariable String planId,
+                                                     @ModelAttribute SubscriptionDetail subscriptionDetail,
+                                                     Model model){
+        subscriptionDetail.setPlandId(planId);
+        model.addAttribute("subscriptionDetail",subscriptionDetail);
+        return "redirect:/payments";
     }
 
     @RequestMapping(value = "/newConnection/dongle/{planId}", method= RequestMethod.GET)

@@ -52,7 +52,9 @@ public class UserRegistrationController {
                 userCredential.setPrePaidPlanId("null");
                 userCredential.setPostPaidPlanId("null");
                 userCredential.setDonglePlanId("null");
-
+                userCredential.setPrePaidPlanNumber("null");
+                userCredential.setPostPaidPlanNumber("null");
+                userCredential.setDonglePlanNumber("null");
                 userCredentialRepository.save(userCredential);
 
 

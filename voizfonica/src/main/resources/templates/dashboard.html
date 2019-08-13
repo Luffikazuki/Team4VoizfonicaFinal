@@ -52,6 +52,11 @@
 
 
         <div class="col-sm-8">
+            <div th:if="${postpaidexist} == 'yes'" class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                A postpaid account already exist in this account!
+            </div>
             <div class="well">
                 <h4><b>Hi </b><b th:text="${login.userName}">UserName</b></h4>
                 <hr class="my-4">
@@ -194,7 +199,10 @@
                                 </div>
                                 <div class="well">
                                     <p><b>Low on data ? </b></p>
-                                    <a class="btn btn-info" href="/prePaid">Recharge</a>
+                                    <a class="btn btn-info" href="/prePaid">Recharge</a><br>
+                                    <hr/>
+                                    <p><b>Want to change your number to post paid? </b></p>
+                                    <a class="btn btn-info" href="/prepaidtopostpaid" onclick="myFunction()">Click me</a>
                                 </div>
                             </div>
                         </div>
@@ -342,6 +350,7 @@
     </div>
 </div>
 </div>
+<script type="text/javascript" th:src="@{/js/popUp.js}"></script>
 
 </body>
 </html>

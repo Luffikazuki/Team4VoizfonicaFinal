@@ -106,8 +106,12 @@
                                 <td th:text="${pp.validity}">Monthly Plan</td>
                                 <td th:text="${pp.benefits}">25GB</td>
                                 <td>
-                                    <a class="btn btn-outline-primary" th:href="@{'/newConnection/postPaid/' + ${pp.id}}"
-                                       role="button">Select</a></td>
+                                    <a th:if="${changetopostpaid} == 'no' "class="btn btn-outline-primary"
+                                       th:href="@{'/newConnection/postPaid/' + ${pp.id}}" role="button">Select</a>
+                                    <a th:if="${changetopostpaid} == 'yes' "class="btn btn-outline-primary"
+                                       th:href="@{'/changetopostpaid/' + ${pp.id}}" role="button">Select</a>
+                                </td>
+
                             </tr>
                             </tbody>
                         </table>
@@ -145,8 +149,11 @@
                             <td th:text="${pp.validity}">Monthly Plan</td>
                             <td th:text="${pp.benefits}">25GB</td>
                             <td>
-                                <a class="btn btn-outline-primary" th:href="@{'/newConnection/postPaid/' + ${pp.id}}"
-                                   role="button">Select</a></td>
+                                <a th:if="${changetopostpaid} == 'no' "class="btn btn-outline-primary"
+                                   th:href="@{'/newConnection/postPaid/' + ${pp.id}}" role="button">Select</a>
+                                <a th:if="${changetopostpaid} == 'yes' "class="btn btn-outline-primary"
+                                   th:href="@{'/changetopostpaid/' + ${pp.id}}" role="button">Select</a>
+                            </td>
                         </tr>
 
 
