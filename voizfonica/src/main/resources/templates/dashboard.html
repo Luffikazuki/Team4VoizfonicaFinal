@@ -192,6 +192,10 @@
                                         <li>Plan ends on: <span th:text="${prePaid.endDate}">endDate</span></li>
                                     </ul>
                                 </div>
+                                <div class="well">
+                                    <p><b>Low on data ? </b></p>
+                                    <a class="btn btn-info" href="/prePaid">Recharge</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -256,6 +260,10 @@
                                         <li>Plan ends on: <span th:text="${postPaid.endDate}">endDate</span></li>
                                     </ul>
                                 </div>
+                                <div class="well">
+                                    <p><b>Low on data ? </b></p>
+                                    <a class="btn btn-info" href="/postPaid">Recharge</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -309,7 +317,7 @@
                                 </div>
                                 <div class="well">
                                     <h4><b> Current Plan: </b></h4>
-                                    <p> You are currently in this plan </p>
+                                    <p> You are currently using this plan </p>
                                     <ul>
                                         <li>Plan Name:
                                             <span th:text="${dongle.amountPaid}">Amount Paid </span>&nbsp;/&nbsp;
@@ -319,6 +327,10 @@
                                         <li>Validity: <span th:text="${dongle.validity}">text</span></li>
                                         <li>Plan ends on: <span th:text="${dongle.endDate}">endDate</span></li>
                                     </ul>
+                                </div>
+                                <div class="well">
+                                    <p><b>Low on data ? </b></p>
+                                    <a class="btn btn-info" href="/dongle">Recharge</a>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 /*--- Dashboard---*/
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 550px}
-
+.row.content {height: inherit}
+/*Changed the row content height to inherit from 580px*/
 /* Set gray background color and 100% height */
 .sidenav {
     background-color: #f1f1f1;
