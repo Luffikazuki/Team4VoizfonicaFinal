@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Connection | VoizFonica </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li ><a href="dashboard">Dashboard</a></li>
+                <li><a href="profile">Profile</a></li>
+                <li class="active"><a href="#">New Connection</a></li>
+                <li><a href="unsubscribe">Unsubsricbe</a></li>
+                <li><a href="/">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <br>
+            <img src = "images/logo-small.png" height = "150px" width = "150px" > <br><br>
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="dashboard">Dashboard</a></li>
+                <li><a href="profile">Profile</a></li>
+                <li class="active"><a href="#">New Connection</a></li>
+                <li><a href="unsubscribe">Unsubsricbe</a></li>
+                <li><a href="/">Logout</a></li>
+
+            </ul><br><br><br><br><br><br><br>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="well">
+                <h1 align = "center" >New Connection</h1>
+
+                <div class="services">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item" th:if="${postPaid} == 'null'">
+                            <div class="folded-corner service_tab_1">
+                                <div class="text">
+                                    <i class="fa fa-mobile-phone fa-5x fa-icon-image"></i>
+                                    <a style = "text-decoration:none" href = "newConnection/postPaid">
+                                        <p class="item-title">
+                                        <h3 style = "color:white"> Postpaid</h3>
+                                        </p><!-- /.item-title -->
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item" th:if="${prePaid} == 'null'">
+                            <div class="folded-corner service_tab_1">
+                                <div class="text">
+                                    <i class="	fa fa-phone fa-5x fa-icon-image"></i>
+                                    <a style = "text-decoration:none" href = "newConnection/prePaid">
+                                        <p class="item-title">
+                                        <h3 style = "color:white">Prepaid</h3>
+                                        </p><!-- /.item-title -->
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 Services-tab item" th:if="${dongle} == 'null'">
+                            <div class="folded-corner service_tab_1">
+                                <div class="text">
+                                    <i class="fa fa-rss fa-5x fa-icon-image"></i>
+                                    <a style = "text-decoration:none" href = "buydongle">
+                                        <p class="item-title">
+                                        <h3 style = "color:white">Dongle</h3>
+                                        </p><!-- /.item-title -->
+
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div th:if="${dongle} != 'null' and ${prePaid} != 'null' and ${postPaid} != 'null'" >
+                    <h2>You have availed all the products.</h2><br>
+                    <h4>To get another connection in postpaid or prepaid or dongle, create a new account!</h4>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>
