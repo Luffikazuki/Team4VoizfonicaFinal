@@ -57,7 +57,7 @@
 
             <div class="btn-group">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-                    <img class="login-brand" src="../images/headerLogin.png" alt="Login/SignUP" title="Login/SignUP" width="10"  height ="10">
+                    <img class="login-brand" src="../images/headerLogin.png" alt="Login/SignUP" title="Login/SignUP" width="10" height ="10">
                 </button>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
                     <a class="dropdown-item" href = "login">Login</a>
@@ -76,10 +76,10 @@
 <div class="container-fluid" style="margin-bottom:180px;margin-top:70px">
     <br>
     <div align="center" style="width:inherit;height:inherit;float:auto;">
-                    <span th:if="${paymentMade} == 'yes'" class="badge badge-success">
-                        Successful
-                        <a href="success" class="btn btn-dark">Click here</a>
-                    </span>
+<span th:if="${paymentMade} == 'yes'" class="badge badge-success">
+Payment Successful!
+<a href="success" class="btn btn-dark">Generate Invoice</a>
+</span>
     </div>
     <br>
     <div class="d-flex justify-content-center h-100">
@@ -91,7 +91,7 @@
                 <h3 align = "center">Payment</h3>
             </div>
 
-            <form class="container-fluid" style="background-color:lightgrey;"  th:object="${payment}" method="post">
+            <form class="container-fluid" style="background-color:lightgrey;" th:object="${payment}" method="post">
                 <br>
 
 
@@ -123,8 +123,8 @@
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <label style="margin-left:20px;width:150px">Card Number</label>
-                        <input  style="margin-left:20px;margin-right:20px;width:150px" class="container-fluid"
-                                type="text" th:field="*{ccNum}"/>
+                        <input style="margin-left:20px;margin-right:20px;width:150px" class="container-fluid"
+                               type="text" th:field="*{ccNum}"/>
                     </div>
 
                     <span class="badge badge-danger" style="display:inline;" th:if="${#fields.hasErrors('ccNum')}"
@@ -203,7 +203,7 @@
                     <a href="https://www.facebook.com/"> <img id="footer-image" src = "images/facebook_icon.png"> </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://www.youtube.com/">  <img id="footer-image" src = "images/youtube_icon.png" > </a>
+                    <a href="https://www.youtube.com/"> <img id="footer-image" src = "images/youtube_icon.png" > </a>
                 </li>
                 <li class="nav-item">
                     <a href="https://www.linkedin.com/"> <img id="footer-image" src = "images/link_icon.png" href="#"></a>
@@ -215,10 +215,6 @@
         </div>
 
     </footer></b>
-
-
-
-
 
 
 <!-- CDN's of js and jquery -->

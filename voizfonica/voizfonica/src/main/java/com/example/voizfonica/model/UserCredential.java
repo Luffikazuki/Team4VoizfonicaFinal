@@ -18,8 +18,8 @@ public class UserCredential {
     @Size(min=5, message = "Name must of atleast of length 5")
     private String userName;
 
-    @NotEmpty(message = "Please provide a password")
-    @Size(min=8,max=25)
+    @NotEmpty
+    @Size(min=8,max=25,message = "Must have a minimum of 8 characters")
     private String password;
 
     @Pattern(regexp = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\.\\-]+)\\.([a-zA-Z]{2,5})$",
@@ -30,7 +30,6 @@ public class UserCredential {
     private String aadharNumber;
 
     @NotNull
-    @Size(max=10)
     @Pattern(regexp = "^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$", message = "Please provide a valid pan number")
     private String panNumber;
 
@@ -45,8 +44,8 @@ public class UserCredential {
     private String donglePlanId;
     private String donglePlanNumber;
 
-    @NotEmpty(message = "Plese provide your address")
-    @Length(max = 100,min = 20)
+    @NotEmpty
+    @Length(max = 100,min = 20, message = "Plese provide your address")
     private String address;
 
 

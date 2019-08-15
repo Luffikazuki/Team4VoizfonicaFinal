@@ -18,20 +18,19 @@ public class Complaint {
     private static String id;
 
     @NotNull(message="Please select one")
-    private  String queryType;
+    private String queryType;
 
     @NotBlank(message="Enter Complaint to submit")
     @Size(max=500)
-    private   String queryByUser;
+    private String queryByUser;
 
-    private  Integer ticket=100;
+    private static long ticket=100;
 
-    public Integer getTicket() {
+    public static long getTicket() {
         return ticket;
     }
 
-    public void setTicket(Integer ticket) {
-        this.ticket = ticket;
+    public static void setTicket(long ticket) {
+        Complaint.ticket = ticket;
     }
 }
-

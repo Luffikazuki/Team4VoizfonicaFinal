@@ -48,7 +48,7 @@
                 <li><a href="unsubscribe">Unsubsricbe</a></li>
                 <li><a href="/">Logout</a></li>
 
-            </ul><br>
+            </ul><br><br><br><br><br><br><br>
         </div>
 
 
@@ -59,50 +59,48 @@
                         <div class="row">
 
                             <div class="col-sm-8 col-md-14">
-                                <h3 style="display:inline-block"> Hi! </h3>
-                                <h3 th:each="u: ${user}" th:text="${u.userName}" th:name="userName" th:id="userName"  style="display:inline-block">
+                                <h3 style="display:inline-block"> Hi </h3>
+                                <h3 th:each="u: ${user}" th:text="${u.userName}" th:name="userName" th:id="userName" style="display:inline-block">!
                                 </h3>
                                 <br>
-                                <hr class="my-20"><br><br>
+
+
+                                <hr class="my-20"><br>
                                 <div th:each="u: ${user}">
-                                    <i class="glyphicon glyphicon-user"></i> Name:&nbsp;&nbsp;
-                                    <div th:text="${u.userName}" th:name="userName" th:id="userName"  style="display:inline-block"/></div>
+                                    <i class="glyphicon glyphicon-user"></i> &nbsp; Name:&nbsp;
+                                    <div th:text="${u.userName}" th:name="userName" th:id="userName" style="display:inline-block"/></div>
                                 <br>
                                 <div th:each="u: ${user}" >
-                                    <i class="glyphicon glyphicon-envelope"></i> Email:&nbsp;&nbsp;
-                                    <div  th:text="${u.emailId}" th:name="emailId" th:id="emailId"  style="display:inline-block"></div>
+                                    <i class="glyphicon glyphicon-envelope"></i> &nbsp; Email:&nbsp;
+                                    <div th:text="${u.emailId}" th:name="emailId" th:id="emailId" style="display:inline-block"></div>
                                     <br><br>
                                     <div th:each="u: ${user}" >
-                                        <i class="glyphicon glyphicon-book"></i> AadharNumber:&nbsp;&nbsp;
-                                        <div  th:text="${u.aadharNumber}" th:name="aadharNumber" th:id="aadharNumber"  style="display:inline-block"></div>
+                                        <i class="glyphicon glyphicon-book"></i> &nbsp; Aadhar Number:&nbsp;&nbsp;
+                                        <div th:text="${u.aadharNumber}" th:name="aadharNumber" th:id="aadharNumber" style="display:inline-block"></div>
                                         <br><br>
 
                                         <div th:each="u: ${user}" >
-                                            <i class="glyphicon glyphicon-list-alt"></i> PanNumber:&nbsp;&nbsp;
-                                            <div  th:text="${u.panNumber}" th:name="panNumber" th:id="panNumber"  style="display:inline-block"></div>
+                                            <i class="glyphicon glyphicon-list-alt"></i> &nbsp; Pan Number:&nbsp;
+                                            <div th:text="${u.panNumber}" th:name="panNumber" th:id="panNumber" style="display:inline-block"></div>
                                             <br><br>
 
                                             <div th:each="u: ${user}" >
-                                                <i class="glyphicon glyphicon-earphone"></i> ContactNumber:&nbsp;&nbsp;
-                                                <div  th:text="${u.contactNumber}" th:name="contactNumber" th:id="contactNumber"  style="display:inline-block"></div>
+                                                <i class="glyphicon glyphicon-earphone"></i> &nbsp; Contact Number:&nbsp;
+                                                <div th:text="${u.contactNumber}" th:name="contactNumber" th:id="contactNumber" style="display:inline-block"></div>
                                                 <br><br>
                                                 <div th:each="u: ${user}" >
-                                                    <i class="glyphicon glyphicon-map-marker"></i> Address:&nbsp;&nbsp;
-                                                    <div  th:text="${u.address}" th:name="address" th:id="address"  style="display:inline-block"></div>
+                                                    <i class="glyphicon glyphicon-map-marker"></i> &nbsp; Address:&nbsp;
+                                                    <div th:text="${u.address}" th:name="address" th:id="address" style="display:inline-block"></div>
                                                     <br><br>
                                                     <div th:each="u: ${user}" >
-                                                        <i class="glyphicon glyphicon glyphicon-phone"></i> Plan:&nbsp;&nbsp;
-                                                        <div  th:if="${u.donglePlan} !='dongle' and ${u.prePaidPlan} !='prePaid' and ${u.postPaidPlan} !='postPaid'" style="display:inline-block">Nil</div>
-                                                        <div  th:if="${u.prePaidPlan} =='prePaid' "style="display:inline-block">Prepaid</div>
-                                                        <div  th:if="${u.postPaidPlan} =='postPaid' "style="display:inline-block">Postpaid</div>
-                                                        <div  th:if="${u.donglePlan} =='dongle' "style="display:inline-block">Dongle</div>
-
-
-
-
+                                                        <i class="glyphicon glyphicon glyphicon-phone"></i> &nbsp; Subscribed Plan:&nbsp;
+                                                        <div th:if="${u.donglePlan} !='dongle' and ${u.prePaidPlan} !='prePaid' and ${u.postPaidPlan} !='postPaid'" style="display:inline-block">Nil</div>
+                                                        <div th:if="${u.prePaidPlan} =='prePaid' "style="display:inline-block">Prepaid</div>
+                                                        <div th:if="${u.postPaidPlan} =='postPaid' "style="display:inline-block">Postpaid</div>
+                                                        <div th:if="${u.donglePlan} =='dongle' "style="display:inline-block">Dongle</div>
                                                         <hr class="my-20">
 
-                                                        Do you want to edit your profile?  &nbsp;&nbsp;
+                                                        Do you want to edit your profile? &nbsp;&nbsp;
                                                         <a href="profileEdit"><button type="button" class="btn btn-primary">Click here</button></a>
                                                         <br>
                                                     </div>
@@ -112,18 +110,9 @@
                                     </div>
                                 </div>
 
-
-
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
 
 </body>
 </html>
