@@ -70,7 +70,9 @@ public class UserRegistrationController {
                 msg.setTo(userCredential.getEmailId());
                 msg.setSubject("Welcome to voizfonica");
                 msg.setText("Hi "+userCredential.getUserName()+",\n\nWe welcome you to the world's mightiest network! " +
-                        "Voizfonica.\n\n\nThanks and regards,\nTeam VoizFonica.");
+                        "Voizfonica.\n\n"+"View our world's mightiest network's plans in www.voizfonica.com \n" +
+                        "Purchase your world's mightiest network plan."+
+                        "\n\n\nThanks and regards,\nTeam VoizFonica.");
                 javaMail.send(msg);
                 //Mail function ends here
                 return "customerRegister";

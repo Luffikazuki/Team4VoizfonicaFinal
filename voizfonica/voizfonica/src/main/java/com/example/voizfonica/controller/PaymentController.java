@@ -3,6 +3,8 @@ package com.example.voizfonica.controller;
 import com.example.voizfonica.data.*;
 import com.example.voizfonica.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -24,6 +26,9 @@ public class PaymentController {
     private UserCredentialRepository userCredentialRepository;
     private PlanDetailHistoryRepository planDetailHistoryRepository;
     private DongleProductRepository dongleProductRepository;
+
+    @Autowired
+    private JavaMailSender javaMail;
 
     @Autowired
     public PaymentController(PaymentRepository paymentRepository,
@@ -146,6 +151,15 @@ public class PaymentController {
             model.addAttribute("paymentMade","yes");
             login.setPassword(planDetail.getId());
             model.addAttribute("login",login);
+            //Mail is Sent
+            SimpleMailMessage msg=new SimpleMailMessage();
+            msg.setTo(userCredential.get().getEmailId());
+            msg.setSubject("Acknowledgement from Voizfonica");
+            msg.setText("Hi "+userCredential.get().getUserName()+",\n\n"+"\nYour number is changed from prepaid to postpaid successfully.\n"+
+                    "\nMobile number:"+planDetail.getGeneratedNumber()+
+                    "\n\n\nThanks and regards,\nTeam VoizFonica.");
+            javaMail.send(msg);
+            //Mail function ends here
             return "payment";
 
 

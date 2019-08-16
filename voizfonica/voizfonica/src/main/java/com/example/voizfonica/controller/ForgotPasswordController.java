@@ -6,6 +6,8 @@ import com.example.voizfonica.model.UserCredential;
 import com.example.voizfonica.model.Verification;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,9 @@ public class ForgotPasswordController {
     private String verification2 = "no";
     private String mailId;
     private String question;
+
+    @Autowired
+    private JavaMailSender javaMail;
 
     @Autowired
     public ForgotPasswordController(UserCredentialRepository userCredentialRepository){
@@ -97,6 +102,16 @@ public class ForgotPasswordController {
     public String showSuccess(Model model){
         model.addAttribute("reset","yes");
         model.addAttribute("resetPassword",new Verification());
+        List<UserCredential> userCredentials = userCredentialRepository.findByEmailId(mailId);
+        //Mail is Sent
+        SimpleMailMessage msg=new SimpleMailMessage();
+        msg.setTo(userCredentials.get(0).getEmailId());
+        msg.setSubject("Acknowledgement from Voizfonica");
+        msg.setText("Hi "+userCredentials.get(0).getUserName()+",\n\n" + "Your password has been reset successfully!\n"+
+                "Login with your new password to use the world's mightiest network's services."+
+                "\n\n\nThanks and regards,\nTeam VoizFonica.");
+        javaMail.send(msg);
+        //Mail function ends here
         return "forgotPasswordReset";
     }
 }

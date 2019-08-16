@@ -6,6 +6,8 @@ import com.example.voizfonica.data.SubscriptionDetailRepository;
 import com.example.voizfonica.data.UserCredentialRepository;
 import com.example.voizfonica.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,8 @@ public class UnsubscribeController {
     private PlanDetailRepository planDetailRepository;
     private PlanDetailHistoryRepository planDetailHistoryRepository;
 
-
+    @Autowired
+    private JavaMailSender javaMail;
     @Autowired
     public UnsubscribeController(PlanDetailHistoryRepository planDetailHistoryRepository1, PlanDetailRepository planDetailRepository1, SubscriptionDetailRepository subscriptionDetailRepository1, UserCredentialRepository userCredentialRepository1){
         this.planDetailRepository = planDetailRepository1;
@@ -90,6 +93,15 @@ public class UnsubscribeController {
         login.setEmailId(null);
         login.setPassword(null);
         model.addAttribute("login",login);
+        //Mail is Sent
+        SimpleMailMessage msg=new SimpleMailMessage();
+        msg.setTo(userCredential.get().getEmailId());
+        msg.setSubject("Acknowledgement from Voizfonica");
+        msg.setText("Hi "+userCredential.get().getUserName()+",\n\n" + "We are remorseful to inform you that your current "+
+                planDetail.get().getProductId()+" plan has been unsubscribed.\n\n"+"We are eagerly waiting for your return."+
+                "\n\n\nThanks and regards,\nTeam VoizFonica.");
+        javaMail.send(msg);
+        //Mail function ends here
         return "redirect:/profile";
 
     }
@@ -110,6 +122,15 @@ public class UnsubscribeController {
         login.setEmailId(null);
         login.setPassword(null);
         model.addAttribute("login",login);
+        //Mail is Sent
+        SimpleMailMessage msg=new SimpleMailMessage();
+        msg.setTo(userCredential.get().getEmailId());
+        msg.setSubject("Acknowledgement from Voizfonica");
+        msg.setText("Hi "+userCredential.get().getUserName()+",\n\n" + "We are remorseful to inform you that your current "+
+                        planDetail.get().getProductId()+" plan has been unsubscribed.\n\n"+"We are eagerly waiting for your return."+
+                "\n\n\nThanks and regards,\nTeam VoizFonica.");
+        javaMail.send(msg);
+        //Mail function ends here
         return "redirect:/profile";
 
     }
@@ -130,6 +151,15 @@ public class UnsubscribeController {
         login.setEmailId(null);
         login.setPassword(null);
         model.addAttribute("login",login);
+        //Mail is Sent
+        SimpleMailMessage msg=new SimpleMailMessage();
+        msg.setTo(userCredential.get().getEmailId());
+        msg.setSubject("Acknowledgement from Voizfonica");
+        msg.setText("Hi "+userCredential.get().getUserName()+",\n\n" + "We are remorseful to inform you that your current "+
+                        planDetail.get().getProductId()+" plan has been unsubscribed.\n\n"+"We are eagerly waiting for your return."+
+                "\n\n\nThanks and regards,\nTeam VoizFonica.");
+        javaMail.send(msg);
+        //Mail function ends here
         return "redirect:/profile";
 
     }

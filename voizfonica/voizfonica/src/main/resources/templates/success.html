@@ -50,29 +50,28 @@
                 </div>
             </div>
             <br>
-
             <div class="row">
                 <div class="col-xs-6">
                     <b>Payment made to number:&nbsp;</b>	<span th:text="${planDetail.generatedNumber}"></span><br><br>
                 </div>
             </div>
-            <br>
             <div class="row">
                 <div class="col-xs-6">
                     <b>Payment Method:</b>
                     Credit card transaction
                 </div>
             </div>
-            <br>
+            <br><br>
             <div class="row">
                 <div class="col-xs-6">
                     <b>Order Date:</b>	<span th:text="${planDetail.startDate}"></span><br><br>
                 </div>
             </div>
+            <br>
 
             <div class="row" th:if="${hasproduct} == 'yes'">
                 <div class="col-xs-6">
-                    <b>Delivery info:</b>&nbsp; Your dongle will be delieverd withing 2 - 3 days.	<br><br>
+                    <b>Delivery info:</b>&nbsp; Your dongle will be delieverd within 2 - 3 days.	<br><br>
                 </div>
             </div>
         </div>
