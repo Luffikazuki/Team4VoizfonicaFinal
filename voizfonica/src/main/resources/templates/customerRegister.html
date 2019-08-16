@@ -1,0 +1,284 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device-width , initial-scale = 1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <title>Register | VoizFonica</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/customerRegister.css}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body> <!--Start of body-->
+<!-- Header / Navigation Starts-->
+<b>
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-expand-sm bg-dark ">
+
+
+            <a class="navbar-brand" href="/">
+                <img class="logo-brand" src="images/logo.png" alt="VoizFonica" title="VoizFonica"/>
+            </a>
+
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse nav-header-list" id="main-navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="/" >Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="eStore">Voiz-Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="plans">Plans</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="MNP">MNP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="aboutus">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link headerFont" href="customerComplaint">Help</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
+                    <img class="login-brand" src="images/headerLogin.png" alt="Login/SignUP" title="Login/SignUP" width="10"  height ="10">
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+                    <a class="dropdown-item" href = "login">Login</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href = "customerRegister" >Sign Up</a>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+</b>
+
+<!--Header / Navigation ends here -->
+
+<!-- Register / Navigation Starts -->
+<br><br><br>
+<b>
+    <div class="card-header">
+        <h4 align = "center"><font color = "white">Register to join the earth's mightiest telecom </font>  	 </h4>
+
+    </div>
+    <br>
+
+    <div align="center" style="width:inherit;height:inherit;float:auto;">
+                <span class="badge badge-success"  th:if="${registrationSuccess} == 'yes'">
+                    Successfully registered &nbsp;
+                <a  href="login" class="btn btn-dark">Click here to login</a>
+                </span><br>
+
+    </div>
+
+
+
+    <div class="card-body" >
+
+
+        <form method="post" th:object="${userCredential}" >
+
+
+            <div class="formstyle">
+                <span class="badge badge-danger" th:if="${mailExist} == 'yes'">
+                    Email already exist!
+                </span>
+            </div>
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(userName)}" th:errors="*{userName}">Errors</span>
+            </div>
+            <div class="formstyle">
+
+                <label>User name</label>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7" autofocus required type="text" placeholder="User name" th:field="*{userName}"/>
+            </div>
+
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(emailId)}" th:errors="*{emailId}">Errors</span>
+            </div>
+            <div class="formstyle">
+                <label for="emailAddress">Email Address</label>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{emailId}"required placeholder="Email Address" id="emailAddress" type="email" >
+            </div>
+
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(password)}"
+                      th:errors="*{password}">Errors</span>
+            </div>
+            <div class="formstyle" >
+                <label>Password</label>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{password}"
+                       required placeholder="Password" id="password" type="password" onkeyup="check();"/>
+                <i onclick="showPassword()" class="fa fa-eye" style="font-size:24px;"></i>
+            </div>
+
+            <span class="badge badge-warning" id="showNotMatch"></span>
+
+            <div class="formstyle" >
+                <label>Confirm Password</label>
+
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7 " required type="password"
+                       placeholder="Confirm Password"
+                       name="confirm_password" id="confirm_password" onkeyup="check();"/>
+            </div>
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(contactNumber)}" th:errors="*{contactNumber}">Errors</span>
+            </div>
+            <div class="formstyle" >
+                <label>Contact number</label>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7 numbers"
+                       required  th:field="*{contactNumber}" placeholder="Contact number" id="contactNumber" type="number" />
+            </div>
+
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(panNumber)}" th:errors="*{panNumber}">Errors</span>
+            </div>
+            <div class="formstyle" >
+                <label>Pan number</label>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{panNumber}" required  placeholder="Pan number" id="panNumber" type="text"  />
+            </div>
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(aadharNumber)}" th:errors="*{aadharNumber}">Errors</span>
+            </div>
+            <div class="formstyle" >
+                <label>Aadhar number</label>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7 numbers" required  th:field="*{aadharNumber}" placeholder="Aadhar number" id="aadharNumber" type="number"/>
+            </div>
+
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(securityQuestion)}"
+                      th:errors="*{securityQuestion}">Errors</span>
+            </div>
+
+            <div class="formstyle" >
+                <label for="plan">Security Question</label>
+                <select  required name="secuityQuestion" id="plan" th:field="*{securityQuestion}"
+                         style="width:200px; background-color:linen;">
+                    <option value="null">Please select</option>
+                    <option value="What is your first school name?">What is your first school name?</option>
+                    <option value="What is your spouse name?">What is your spouse name?</option>
+                    <option value="What is your first pet name?">What is your first pet name?</option>
+                    <option value="What is your favorite anime?">What is your favorite anime?</option>
+                </select>
+            </div>
+
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(securityAnswer)}"
+                      th:errors="*{securityAnswer}">Errors</span>
+            </div>
+            <div class="formstyle" >
+                <label>Answer</label>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7" required
+                       th:field="*{securityAnswer}" placeholder="Please give your answer!" id="securityAnswer" type="text"/>
+            </div>
+
+
+
+            <div>
+                <span class="badge badge-danger" th:if="@{#fields.hasErrors(address)}" th:errors="*{address}">Errors</span>
+            </div>
+            <div class="formstyle" >
+                <label>Address</label>
+                <textarea class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{address}"required   cols="40" rows="3" ></textarea>
+            </div>
+
+            <div class="formstyle">
+                <input type="submit" align = "center" value="Register" class="btn float login_btn">
+            </div>
+
+
+
+
+        </form>
+
+
+    </div>
+
+
+    <!-- Register / Navigation Ends -->
+
+    <!-- Footer starts --><b>
+    <footer class="page-footer">
+
+        <div class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="investors">Investors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="careers">Careers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Ppolicy">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="business">Business</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container">
+            <br>
+
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a href="https://www.twitter.com/"><img id="footer-image" src = "images/twitter_icon.jpg"> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.instagram.com/"> <img id="footer-image" src = "images/instagram_icon.jpg" ></a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.facebook.com/"> <img id="footer-image" src = "images/facebook_icon.png"> </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.youtube.com/">  <img id="footer-image" src = "images/youtube_icon.png" > </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/"> <img id="footer-image" src = "images/link_icon.png" href="#"></a>
+                </li>
+            </ul>
+            <br>
+            <hr>
+            <div class="footer-copyright text-center">© 2019 VoizFonica. All Rights Reserved </div>
+        </div>
+
+    </footer></b>
+
+
+
+
+
+
+    <!-- CDN's of js and jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/customerRegister.js}"></script>
+</body> <!--End of body -->
+
+</html>

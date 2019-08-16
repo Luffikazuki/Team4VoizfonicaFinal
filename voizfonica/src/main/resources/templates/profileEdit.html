@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Profile | VoizFonica </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+<nav class="navbar navbar-inverse visible-xs">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li ><a href="dashboard">Dashboard</a></li>
+                <li class="active"><a href="profile">Profile</a></li>
+                <li><a href="newConnection">New Connection</a></li>
+                <li><a href="unsubscribe">Unsubsricbe</a></li>
+                <li><a href="/">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <br>
+            <img src = "images/logo-small.png" height = "150px" width = "150px" > <br><br>
+            <ul class="nav nav-pills nav-stacked">
+                <li ><a href="dashboard">Dashboard</a></li>
+                <li class="active"><a href="profile">Profile</a></li>
+                <li><a href="newConnection">New Connection</a></li>
+                <li><a href="unsubscribe">Unsubsricbe</a></li>
+                <li><a href="/">Logout</a></li>
+
+            </ul><br><br><br><br><br><br><br>
+        </div>
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+            <div class="alert alert-info alert-dismissable">
+                <a class="panel-close close" data-dismiss="alert">×</a>
+                <i class="fa fa-coffee"></i>
+                Editing your profile will make the changes permanently in your account.
+            </div>
+            <div class="col-sm-12">
+                <div class="well">
+                    <h3>Edit Profile</h3>
+                    <hr class="my-4">
+
+                    <form class="form-horizontal" role="form" method="post" th:object="${userCredential}">
+                        <div th:each="u: ${user}">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Username:</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="text" th:value="${u.userName}" th:name="userName" th:id="userName"/>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Email:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" type="text" th:value="${u.emailId}" th:name="emailId" th:id="emailId">
+                                </div>
+                            </div>
+
+
+<!--                            <div class="form-group">-->
+<!--                                <label class="col-md-3 control-label">Password:</label>-->
+<!--                                <div class="col-md-8">-->
+<!--                                    <input class="form-control" type="password" th:value="${u.password}" th:name="password" th:id="password" >-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">Contact Number:</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" type="text" th:value="${u.contactNumber}" th:name="contactNumber" th:id="contactNumber">
+                                </div>
+                            </div>
+
+
+
+<!--                            <div class="form-group">-->
+<!--                                <label class="col-lg-3 control-label">Address:</label>-->
+<!--                                <div class="col-lg-8">-->
+<!--                                    <input class="form-control" th:value="${u.address}" type="text" th:name="address" th:id="address">-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label"></label>
+                                <div class="col-md-8">
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Save Changes
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+
+                                                <div class="modal-body">
+                                                    <h1 align="center" style="color:green;">Press ok to confirm ☻</h1>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Ok</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <span></span>
+                                    <a href="#"><input type="reset" class="btn btn-default" value="Cancel"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+</body>
+</html>
