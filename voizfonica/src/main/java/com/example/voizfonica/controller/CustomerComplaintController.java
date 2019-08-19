@@ -3,6 +3,8 @@ package com.example.voizfonica.controller;
 
 import com.example.voizfonica.data.ComplaintRepository;
 import com.example.voizfonica.model.Complaint;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,8 +47,14 @@ public class CustomerComplaintController {
         }else{
             System.out.println(complaint);
             complaint.setTicket(complaint.getTicket()+1);
-            System.out.println(complaint);
+
+
             complaintrepository.save(complaint);
+            Message message = Message.creator(
+                    new com.twilio.type.PhoneNumber("+91"+complaint.getMobileNumber()),
+                    new PhoneNumber("+12052739633"),
+                    "Your complaint has been submitted.. Your ticket number is"+complaint.getTicket()+".  We will get back to you as soon as possible")
+                    .create();
             // model.addAttribute("showDetails",userCredentials);
             return "ComplaintSubmit";
         }

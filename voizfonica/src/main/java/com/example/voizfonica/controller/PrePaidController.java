@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/*#############Controllers for selecting the plans  ##############################*/
+
 @Controller
 @SessionAttributes({"subscriptionDetail","login","dongleProduct"})
 public class PrePaidController {
@@ -33,6 +35,8 @@ public class PrePaidController {
         return new Login();
     }
 
+//    GetMapping controller or new prepaid connection
+
     @GetMapping("/newConnection/prePaid")
     public String showPrePaidPlans(Model model){
         List<PrePaid> threeG = prePaidRepository.findByType("3G");
@@ -45,6 +49,8 @@ public class PrePaidController {
         return "prePaid";
     }
 
+
+
     @GetMapping("/prePaid")
     public String showPrePaidPlanss(Model model){
         List<PrePaid> threeG = prePaidRepository.findByType("3G");
@@ -53,7 +59,7 @@ public class PrePaidController {
         model.addAttribute("fourG",fourG);
         return "prePaid";
     }
-
+//  Controller for new postpaid connection
     @GetMapping("/newConnection/postPaid")
     public String showPostPaidPlans(Model model){
         List<PostPaid> threeG = postPaidRepository.findByType("3G");
@@ -67,6 +73,7 @@ public class PrePaidController {
         return "postPaid";
     }
 
+//    Controller to change from pre paid to post paid
     @GetMapping("changetopostpaid")
     public String processRequest(Model model){
         List<PostPaid> threeG = postPaidRepository.findByType("3G");
@@ -90,7 +97,7 @@ public class PrePaidController {
         return "postPaid";
     }
 
-
+//  Controller for new dongle connection
     @GetMapping("/newConnection/dongle")
     public String showDonglePlans(Model model){
         List<Dongle> threeG = dongleRepository.findByType("3G");
@@ -103,10 +110,13 @@ public class PrePaidController {
         return "dongle";
     }
 
+//   controller for buying a dongle
     @GetMapping("buydongle")
     public String showbuydongle(Model model){
         return "buydongle";
     }
+
+//    Controller for selecting dongle plans after purchasing the dongle
     @GetMapping("/newConnection/dongleplans")
     public String showDonglePlansss(Model model){
         List<Dongle> threeG = dongleRepository.findByType("3G");
@@ -124,6 +134,7 @@ public class PrePaidController {
 
     }
 
+//    Getting the dongle plans id
     @RequestMapping(value = "/newConnection/dongleplans/{planId}", method= RequestMethod.GET)
     public String updateSubscriptionDongleProduct(@PathVariable String planId, @ModelAttribute SubscriptionDetail subscriptionDetail,
                                            Model model,
@@ -144,6 +155,7 @@ public class PrePaidController {
         return "dongle";
     }
 
+//    Getting the prepaid plan id
     @RequestMapping(value = "/newConnection/prePaid/{planId}", method=RequestMethod.GET)
     public String updateSubscriptionPostPaid(@PathVariable String planId,
                                              @ModelAttribute SubscriptionDetail subscriptionDetail, Model model){
@@ -151,6 +163,7 @@ public class PrePaidController {
         model.addAttribute("subscriptionDetail",subscriptionDetail);
         return "redirect:/payment";
     }
+//    Getting the postpaid plan id
 
     @RequestMapping(value = "/newConnection/postPaid/{planId}", method= RequestMethod.GET)
     public String updateSubscriptionPrePaid(@PathVariable String planId, @ModelAttribute SubscriptionDetail subscriptionDetail,Model model){
@@ -159,6 +172,7 @@ public class PrePaidController {
         return "redirect:/payment";
     }
 
+//    Getting the post paid plan after opting to change from prepaid
     @RequestMapping(value = "/changetopostpaid/{planId}", method= RequestMethod.GET)
     public String updateSubscriptionChangeToPostPaid(@PathVariable String planId,
                                                      @ModelAttribute SubscriptionDetail subscriptionDetail,
@@ -168,6 +182,7 @@ public class PrePaidController {
         return "redirect:/payments";
     }
 
+//    Getting the dongle plan id without a dongle
     @RequestMapping(value = "/newConnection/dongle/{planId}", method= RequestMethod.GET)
     public String updateSubscriptionDongle(@PathVariable String planId, @ModelAttribute SubscriptionDetail subscriptionDetail,
                                            Model model){

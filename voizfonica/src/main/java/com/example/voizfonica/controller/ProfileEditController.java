@@ -83,7 +83,7 @@ public class ProfileEditController {
         SimpleMailMessage msg=new SimpleMailMessage();
         msg.setTo(userCredential.getEmailId());
         msg.setSubject("Acknowledgement from voizfonica");
-        msg.setText("Hi "+userCredential.getUserName()+",\n\nChanges you made has been updated in your profile successfully " +
+        msg.setText("Hi "+userCredential.getUserName()+",\n\nYour changes has been updated successfully " +
 
                 "\n\n\nThanks and regards,\nTeam VoizFonica.");
         javaMail.send(msg);

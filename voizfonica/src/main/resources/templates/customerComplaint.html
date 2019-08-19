@@ -81,6 +81,11 @@
         <div class="col">
             <form method="post"  th:object="${complaint}">
                 <div class="form-group">
+                    <label for="mobileNumber">Mobile Number</label>
+                    <input class="form-control" th:field="*{mobileNumber}" id="mobileNumber" required maxlength="10"
+                              placeholder="Enter your mobile number"/>
+                    <span class="badge badge-danger"
+                          th:if="${#fields.hasErrors('mobileNumber')}" th:errors="*{mobileNumber}">Type your complaint</span>
                     <label for="queryType">Query Type</label>
                     <select class="form-control" id="queryType" th:field="*{queryType}">
                         <option value="general">Choose query type</option>

@@ -19,6 +19,8 @@ public class IndexController {
 
     @GetMapping("/")
     public String investorfunc(@ModelAttribute Login login, SessionStatus sessionStatus) {
+//        Ending the session here
+//        ///////////////////////
         sessionStatus.setComplete();
         return "index";
     }

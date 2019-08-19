@@ -37,6 +37,8 @@ public class ForgotPasswordController {
         return "forgotPassword";
     }
 
+//    Verification 1 starts here
+//    Verifying the mail id
     @PostMapping("/forgotPassword")
     public String processVerification(Login login, Model model){
         List<UserCredential> userCredentials = userCredentialRepository.findByEmailId(login.getEmailId());
@@ -52,9 +54,8 @@ public class ForgotPasswordController {
             return "redirect:/verify";
         }
     }
-
-
-    // Verification 2 Starts here
+//     Verification 2 Starts here
+//      Verifying the security question answers here
     @GetMapping("verify")
     public String getVerification2(Model model){
         if(verification1.equals("verified")){
@@ -89,6 +90,7 @@ public class ForgotPasswordController {
             return "login";
         }
     }
+
 
     @PostMapping("confirmPassword")
     public String processNewPassword(Verification verification, Model model){

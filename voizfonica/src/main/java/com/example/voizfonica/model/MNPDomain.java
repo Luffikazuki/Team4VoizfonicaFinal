@@ -27,4 +27,7 @@ public class MNPDomain {
     @Size (max=10)
     private String portKey;
 
+    public String getMobNumber() {
+        return mobNumber;
+    }
 }

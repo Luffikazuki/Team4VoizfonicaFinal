@@ -5,6 +5,8 @@ package com.example.voizfonica.controller;
 
 import com.example.voizfonica.data.MNPRepository;
 import com.example.voizfonica.model.MNPDomain;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +45,11 @@ public class MNPController {
     @PostMapping
     public String processRegistrationFrom(@Valid MNPDomain mnpdomain, Errors errors, Model model) {
             mnprepository.save(mnpdomain);
+        Message message = Message.creator(
+                new com.twilio.type.PhoneNumber("+91"+mnpdomain.getMobNumber()),
+                new PhoneNumber("+12052739633"),
+                "Welcome to voizfonica..! Your request for mobile number portability will be processed soon")
+                .create();
             //model.addAttribute("showDetails", mnpdomain);
         return "MNPSuccess";
         }

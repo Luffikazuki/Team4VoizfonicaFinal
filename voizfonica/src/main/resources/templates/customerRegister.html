@@ -111,7 +111,8 @@
             <div class="formstyle">
 
                 <label>User name</label>
-                <input class="container-fluid-block col-12 col-sm-12 col-md-7" autofocus required type="text" placeholder="User name" th:field="*{userName}"/>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7" autofocus required type="text" minlength="8"
+                       placeholder="User name" pattern="[A-Za-z]+" th:field="*{userName}"/>
             </div>
 
             <div>
@@ -119,7 +120,8 @@
             </div>
             <div class="formstyle">
                 <label for="emailAddress">Email Address</label>
-                <input class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{emailId}"required placeholder="Email Address" id="emailAddress" type="email" >
+                <input type="email" class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{emailId}"required
+                       placeholder="Email Address" id="emailAddress" >
             </div>
 
             <div>
@@ -139,7 +141,7 @@
                 <label>Confirm Password</label>
 
                 <input class="container-fluid-block col-12 col-sm-12 col-md-7 " required type="password"
-                       placeholder="Confirm Password"
+                       placeholder="Confirm Password" minlength="8" maxlength="25"
                        name="confirm_password" id="confirm_password" onkeyup="check();"/>
             </div>
             <div>
@@ -148,7 +150,8 @@
             <div class="formstyle" >
                 <label>Contact number</label>
                 <input class="container-fluid-block col-12 col-sm-12 col-md-7 numbers"
-                       required  th:field="*{contactNumber}" placeholder="Contact number" id="contactNumber" type="number" />
+                       required  th:field="*{contactNumber}" placeholder="Contact number" id="contactNumber"
+                       maxlength="10" type="number" />
             </div>
 
             <div>
@@ -156,14 +159,16 @@
             </div>
             <div class="formstyle" >
                 <label>Pan number</label>
-                <input class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{panNumber}" required  placeholder="Pan number" id="panNumber" type="text"  />
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{panNumber}" maxlength="10"
+                       required  placeholder="Pan number" id="panNumber" type="text"  />
             </div>
             <div>
                 <span class="badge badge-danger" th:if="@{#fields.hasErrors(aadharNumber)}" th:errors="*{aadharNumber}">Errors</span>
             </div>
             <div class="formstyle" >
                 <label>Aadhar number</label>
-                <input class="container-fluid-block col-12 col-sm-12 col-md-7 numbers" required  th:field="*{aadharNumber}" placeholder="Aadhar number" id="aadharNumber" type="number"/>
+                <input class="container-fluid-block col-12 col-sm-12 col-md-7 numbers" required  maxlength="12"
+                       th:field="*{aadharNumber}" placeholder="Aadhar number" id="aadharNumber" type="number"/>
             </div>
 
             <div>
@@ -200,7 +205,8 @@
             </div>
             <div class="formstyle" >
                 <label>Address</label>
-                <textarea class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{address}"required   cols="40" rows="3" ></textarea>
+                <textarea class="container-fluid-block col-12 col-sm-12 col-md-7" th:field="*{address}"required
+                          cols="40" rows="3" minlength="20"></textarea>
             </div>
 
             <div class="formstyle">

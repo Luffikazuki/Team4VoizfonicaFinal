@@ -48,7 +48,7 @@ public class UserRegistrationController {
             return "customerRegister";
         }else{
             List<UserCredential> userCredentials = userCredentialRepository.findByEmailId(userCredential.getEmailId());
-
+//            Checking whether the usercredentials object is empty or not!
             if(userCredentials.isEmpty()) {
                 userCredential.setPrePaidPlan("null");
                 userCredential.setPostPaidPlan("null");

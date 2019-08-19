@@ -76,7 +76,7 @@ public class UnsubscribeController {
     }
 
 
-
+//  Controller to unsubscribe the postpaid plan
     @GetMapping("unsubscribe/postpaid")
     public String unsubscribePostpaidPlan(@ModelAttribute Login login,Model model)
     {
@@ -105,6 +105,9 @@ public class UnsubscribeController {
         return "redirect:/profile";
 
     }
+
+
+//  Controller to unsubscribe prepaid plan
 
     @GetMapping("unsubscribe/prepaid")
     public String unsubscribePrepaidPlan(@ModelAttribute Login login,Model model)
@@ -135,6 +138,7 @@ public class UnsubscribeController {
 
     }
 
+//   Controller to unsubscribe dongle plan
     @GetMapping("unsubscribe/dongle")
     public String unsubscribeDonglePlan(@ModelAttribute Login login,Model model)
     {
@@ -163,6 +167,8 @@ public class UnsubscribeController {
         return "redirect:/profile";
 
     }
+
+//    Function to save the plan detail history after unsubscribing
 
     public void savePlanHistory(PlanDetail plan)
     {

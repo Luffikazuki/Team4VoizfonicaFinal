@@ -17,6 +17,9 @@ public class Complaint {
     @Id
     private static String id;
 
+    @Size(max=10,message="Enter a valid mobile number")
+    private String mobileNumber;
+
     @NotNull(message="Please select one")
     private String queryType;
 
@@ -25,6 +28,10 @@ public class Complaint {
     private String queryByUser;
 
     private static long ticket=100;
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
 
     public static long getTicket() {
         return ticket;

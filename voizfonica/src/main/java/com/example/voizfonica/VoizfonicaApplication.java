@@ -10,29 +10,37 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
+import com.twilio.Twilio;
+
 
 
 @SpringBootApplication
 public class VoizfonicaApplication {
+    private final static String ACCOUNT_SID = "AC6139ce9531912580eedaf22511c481d3";
+    private final static String AUTH_TOKEN = "414c7ca086e340dc7a258c990a604362";
+    static {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(VoizfonicaApplication.class, args);
     }
 
-    //Postpaid Database
-//    @Bean
-//    public CommandLineRunner postLoader(PostPaidRepository postRepo) {
-//        postRepo.deleteAll();
-//        return args -> {
-//            postRepo.save(new PostPaid("199INR","30 Days","100 GB", "3G"));
-//            postRepo.save(new PostPaid("599INR","30 Days","250 GB","3G"));
-//            postRepo.save(new PostPaid("899INR","365 Days","500 GB","3G"));
-//            postRepo.save(new PostPaid("1500INR","30 Days","205 GB","4G"));
-//            postRepo.save(new PostPaid("3300INR","30 Days","505 GB","4G"));
-//            postRepo.save(new PostPaid("5500INR","365 Days","1001 GB","4G"));
-//
-//        };
-//    }
+//    Postpaid Database
+    @Bean
+    public CommandLineRunner postLoader(PostPaidRepository postRepo) {
+        postRepo.deleteAll();
+        return args -> {
+            postRepo.save(new PostPaid("199INR","30 Days","100 GB", "3G"));
+            postRepo.save(new PostPaid("599INR","30 Days","250 GB","3G"));
+            postRepo.save(new PostPaid("899INR","365 Days","500 GB","3G"));
+            postRepo.save(new PostPaid("1500INR","30 Days","205 GB","4G"));
+            postRepo.save(new PostPaid("3300INR","30 Days","505 GB","4G"));
+            postRepo.save(new PostPaid("5500INR","365 Days","1001 GB","4G"));
+
+        };
+    }
 
 
     //Dongle Database
@@ -54,19 +62,18 @@ public class VoizfonicaApplication {
 
 
     //Prepaid Database
-//    @Bean
-//    public CommandLineRunner planLoader(PrePaidRepository repo) {
-//        repo.deleteAll();
-//        return args -> {
-//            repo.save(new PrePaid("1500 INR","365 Days","547.5 GB", "3G"));
-//            repo.save(new PrePaid("400 INR","84 Days","126 GB", "3G"));
-//            repo.save(new PrePaid("28 INR","28 Days","42 GB" , "3G"));
-//
-//            repo.save(new PrePaid("198 INR","28 Days","56 GB", "4G"));
-//            repo.save(new PrePaid("400 INR","78 Days","140 GB", "4G"));
-//            repo.save(new PrePaid("448 INR","84 Days","168 GB", "4G"));
-//        };
-//    }
+    @Bean
+    public CommandLineRunner planLoader(PrePaidRepository repo) {
+        repo.deleteAll();
+        return args -> {
+            repo.save(new PrePaid("1500 INR","365 Days","547 GB","3G"));
+            repo.save(new PrePaid("400 INR","84 Days","126 GB", "3G"));
+            repo.save(new PrePaid("28 INR","28 Days","42 GB" , "3G"));
+            repo.save(new PrePaid("198 INR","28 Days","56 GB", "4G"));
+            repo.save(new PrePaid("400 INR","78 Days","140 GB", "4G"));
+            repo.save(new PrePaid("448 INR","84 Days","168 GB", "4G"));
+        };
+    }
 
     }
 
