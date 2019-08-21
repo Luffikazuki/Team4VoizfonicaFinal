@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        New Blog | Bloggest
+    </title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/messageStyle.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+    <style>
+        .contain{
+            padding-left: 400px;
+        }
+        .bg-dark {
+            background-color: #000000!important;
+        }
+        .container-fluid{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+
+<br>
+<h2 style = "color: #AF0808; font-weight:500;" align = 'center'>Editing is actually improvising. So feel free to edit :)</h2>
+<br>
+
+<div class="contain">
+    <div class="row">
+        <div class="col-sm-6 col-md-8 col-lg-8">
+            <div class="wrap-contact100">
+                <form class="contact100-form validate-form" method="post" th:object="${user}">
+                                 <div class="form-group">
+                        <input class="form-control" type="text" name="title" placeholder="Title" th:value="${user.title}" th:name="title" th:id="title">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" col="5" type="text" name="summary" placeholder="Summary" th:value="${user.summary}" th:name="summary" th:id="summary"></textarea>
+                    </div>
+                    <div class="container-contact100-form-btn">
+                         <button class="btn btn-primary">Edit Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br>
+<br>
+
+
+</body>
+</html>

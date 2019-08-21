@@ -1,0 +1,110 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        Home | Bloggest
+    </title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/indexStyle.css}">
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device-width , initial-scale = 1" />
+</head>
+<body>
+<!-- Header / Navigation Starts-->
+<div class="container-fluid">
+
+    <nav class="navbar navbar-expand-sm bg-dark ">
+        <a class="nav-link headerFont" href="#">
+            Bloggest
+        </a>
+
+        <a class="nav-link headerFont" href="/">
+            Home
+        </a>
+
+        <a class="nav-link headerFont" href="about">
+            About me
+        </a>
+        <div class="navbar-nav ml-auto">
+            <a th:href="login" class="nav-item nav-link">Login</a>
+            <a th:href="register" class="nav-item nav-link">Sign Up</a>
+
+        </div>
+
+    </nav>
+</div>
+
+<section class="container-section">
+    <div class="jumbotron">
+        <h1 style = "color:white;" align ="center">Welcome to the Photography blog!</h1>
+        <h3 style = "color:white;" align = "center">Capture. Post. Blog. Repeat</h3>
+
+        <br><br>
+        <h5 style = "color:white;" align = "center">If you are good behind the lens and can blog well, join us and start blogging. <br> Please login to start blogging &nbsp; <a href = "login"><button type="button" class="btn btn-dark"  style = "font-size: 13px;">Login here!</button></a>
+        </h5>
+        <br><br>
+        <h5 style = "color:white;" align = "center">You can also blog without logging &nbsp; <a href = "newpost"><button type="button" class="btn btn-dark" style = "font-size: 13px;">Create Blog!</button></a></h5>
+    </div>
+</section>
+<br>
+<h2 style = "color: #AF0808; font-weight:500;" align = 'center'>Do check out the blogs of our fellow bloggers! </h2>
+
+<div class="wellcontainer">
+    <div class="media"th:each="u: ${plans}">
+
+            <img width ="20%"  src="images/index.gif">
+        <div class="media-body" >
+            <h4 class="media-heading" th:text="${u.title}" >Receta 2</h4>
+            <p class="text">By <i th:text="${u.name}"></i></p>
+            <h6> Your Ideas:</h6>
+            <p th:utext="${u.summary}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
+                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
+                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
+                Aliquam in felis sit amet augue.</p>
+            <ul class="list-inline list-unstyled">
+                <li><span><i class="fa fa-calendar" aria-hidden="true"><p th:text="${u.date}">12/18/2019</p> </i>   </span></li>
+           </ul>
+            <br>
+            <hr class = "new">
+        </div>
+    </div>
+</div>
+</div>
+<!-- Footer -->
+
+<footer class="page-footer">
+
+    <div class="container">
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a href="https://www.twitter.com/"><img id="footer-image" src = "images/twitter_icon.jpg"> </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.instagram.com/"> <img id="footer-image" src = "images/instagram_icon.jpg" ></a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.facebook.com/"> <img id="footer-image" src = "images/facebook_icon.png"> </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.youtube.com/">  <img id="footer-image" src = "images/youtube_icon.png" > </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.linkedin.com/"> <img id="footer-image" src = "images/link_icon.png" href="#"></a>
+            </li>
+        </ul>
+        <br>
+        <div class="footer-copyright text-center">Made with ♥ by Kishore Kart © 2019. All Rights Reserved </div>
+    </div>
+</footer>
+
+
+
+<!-- CDN's of js and jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

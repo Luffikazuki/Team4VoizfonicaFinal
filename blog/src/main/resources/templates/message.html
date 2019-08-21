@@ -1,0 +1,194 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+New Blog | Bloggest
+</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/messageStyle.css}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+<script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+	<style>
+		.contain{
+			padding-left: 400px;
+		}
+		.bg-dark {
+			background-color: #000000!important;
+		}
+	</style>
+</head>
+<body>
+<!-- Header / Navigation Starts-->
+<div class="container-fluid">
+
+	<nav class="navbar navbar-expand-sm bg-dark ">
+		<a style="color: white;" class="nav-link headerFont" href="#">
+			Bloggest
+		</a>
+
+		<a style="color: white;" class="nav-link headerFont" href="/">
+			Home
+		</a>
+
+		<a style="color: white;" class="nav-link headerFont" href="about">
+			About me
+		</a>
+		<div class="navbar-nav ml-auto">
+			<a style="color: white;" href="blog" class="nav-item nav-link">My Blog</a>
+			<a style="color: white;" href="/" class="nav-item nav-link">Logout</a>
+		</div>
+
+	</nav>
+</div>
+
+<section class="container-section">
+	<div class="jumbotron">
+		<h1 style = "color:white;" align ="center">Welcome to the Photography blog!</h1>
+		<br>
+		<h4 style = "color:white;" align = "center">Capture. Post. Blog. Repeat</h4>
+
+		<br><br><br>
+		<h5 style = "color:white;" align = "center">If you are good behind the lens and can blog well, join us and start blogging.
+		</h5>
+		<br>
+		<div align="center" style="width:inherit;height:inherit;float:auto;">
+               <span class="badge badge-success"  th:if="${postSuccess} == 'yes'">
+                     Posted Successfully!&nbsp;
+                <a  href="blog" class="btn btn-dark">View Blog</a>
+                </span><br>
+		</div>
+
+	</div>
+</section>
+<br>
+<h2 style = "color: #AF0808; font-weight:500;" align = 'center'>Have fun in creating your new blog!</h2>
+<br>
+
+<div class="contain">
+<div class="row">
+	<div class="col-sm-6 col-md-8 col-lg-8">
+				<div class="wrap-contact100">
+				
+			<form class="contact100-form validate-form" method="post" th:action="@{/create}" th:object="${create}">
+				<span class="contact100-form-title">
+					Storm your brain to create new blog
+				</span>
+				<span class="badge badge-dark">Please use the same username</span>
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<input class="input100" type="text" name="name" placeholder="Username" th:field="*{name}">
+					<span class="focus-input100-1"></span>
+					<span class="focus-input100-2"></span>
+
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate = "Enter the title" required>
+					<input class="input100" type="text" name="title" placeholder="Title" th:field="*{title}">
+					<span class="focus-input100-1"></span>
+					<span class="focus-input100-2"></span>
+				</div>
+
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<textarea name="content"  id="editor" placeholder="Your Ideas" th:field="*{summary}"></textarea>
+                <script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
+
+					<span class="focus-input100-1"></span>
+					<span class="focus-input100-2"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						Post
+					</button>
+				</div>
+			</form>
+		</div>
+			
+		
+	</div>
+
+</div>
+</div>
+<br>
+<br>
+<!-- Footer -->
+
+<footer class="page-footer">
+
+	<div class="container">
+
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<a href="https://www.twitter.com/"><img id="footer-image" src = "images/twitter_icon.jpg"> </a>
+			</li>
+			<li class="nav-item">
+				<a href="https://www.instagram.com/"> <img id="footer-image" src = "images/instagram_icon.jpg" ></a>
+			</li>
+			<li class="nav-item">
+				<a href="https://www.facebook.com/"> <img id="footer-image" src = "images/facebook_icon.png"> </a>
+			</li>
+			<li class="nav-item">
+				<a href="https://www.youtube.com/">  <img id="footer-image" src = "images/youtube_icon.png" > </a>
+			</li>
+			<li class="nav-item">
+				<a href="https://www.linkedin.com/"> <img id="footer-image" src = "images/link_icon.png" href="#"></a>
+			</li>
+		</ul>
+		<br>
+		<div class="footer-copyright text-center">Made with ♥ by Kishore Kart © 2019. All Rights Reserved </div>
+	</div>
+</footer>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
+	<script src="js/map-custom.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

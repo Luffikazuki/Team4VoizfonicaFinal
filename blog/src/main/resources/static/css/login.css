@@ -1,0 +1,212 @@
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+    background-image: url('https://i.pinimg.com/originals/4c/c3/5a/4cc35a5eef8deb4b5a5f3165c5c639b6.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+
+}
+a {
+    color: #ffffff;
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+}
+
+.card{
+    height: 340px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+    font-size: 60px;
+    margin-left: 10px;
+    color: #FFC312;
+}
+
+.social_icon span:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.card-header h3{
+    color: white;
+}
+
+.social_icon{
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+.input-group-prepend span{
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+}
+
+input:focus{
+    outline: 0  !important;
+    box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+    color: white;
+}
+
+.remember input
+{
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.login_btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+
+}
+
+.login_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+.links{
+    color: white;
+}
+
+.links a{
+    margin-left: 4px;
+}
+
+
+/*Footer section styles start here */
+
+/*--- footer ---*/
+
+.page-footer {
+
+    background-color: #000000;
+
+    padding: 20px 0 40px;
+}
+
+.footer-copyright {
+    color: #666;
+
+}
+#image-op{
+    opacity: 0.3;
+    filter: alpha(opacity=50);
+}
+#image-con{
+    opacity: 0.25;
+    filter: alpha(opacity=80);
+}
+
+
+#footer-image{
+    width:30px;
+    height:30px;
+    margin-right: 1em;
+}
+
+
+.nav-link:hover{
+    color:#ffffff;
+}
+
+
+.headerSection{
+    height:70px;
+    background-color: #000000;
+
+    padding:0;
+
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.logo{
+    background:#000000;
+    border: 0.5px solid #718fbf;
+    border-radius: 50%;
+    padding:5px;
+    font-family:impact;
+}
+
+.nav-header-list{
+
+    justify-content:bottom;
+    width:200px;
+    height:inherit;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.box-of-login{
+    border:1px solid black;
+    color:black;
+    display:inline;
+    padding:3px;
+
+}
+.container-fluid{
+    padding-left:0;
+    padding-right:0;
+}
+
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+    color:black;
+    padding:2px;
+    border:1px solid white;
+    border-radius:5px;
+    background:white;
+}
+
+.navbar-brand:hover{
+    color:white;
+    font-family:helvetica;
+    padding:2px;
+    background:black;
+    border-radius:5px;
+}
+
+.logo-brand{
+    width:45px;
+    height:40px;
+}
+
+.login-brand{
+    width:45px;
+    height:40px;
+    border-radius:50%;
+}
+
+.btn-group, .btn-secondary, .dropdown-toggle {
+    color: #ffffff;
+    background-color: black;
+    border: none;
+    padding: 5px 5px;
+}

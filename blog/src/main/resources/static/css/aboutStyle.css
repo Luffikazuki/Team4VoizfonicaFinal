@@ -1,0 +1,134 @@
+/*Footer section styles start here */
+
+/*--- footer ---*/
+
+.page-footer {
+
+    background-color: #000000;
+
+    padding: 20px 0 40px;
+}
+
+.footer-copyright {
+    color: #666;
+
+}
+#image-op{
+    opacity: 0.3;
+    filter: alpha(opacity=50);
+}
+#image-con{
+    opacity: 0.25;
+    filter: alpha(opacity=80);
+}
+
+
+#footer-image{
+    width:30px;
+    height:30px;
+    margin-right: 1em;
+}
+
+
+.nav-link:hover{
+    color:#ffffff;
+}
+
+
+.headerSection{
+    height:70px;
+    background-color: #000000;
+
+    padding:0;
+
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.logo{
+    background:#000000;
+    border: 0.5px solid #718fbf;
+    border-radius: 50%;
+    padding:5px;
+    font-family:impact;
+}
+
+.nav-header-list{
+
+    justify-content:bottom;
+    width:200px;
+    height:inherit;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+.box-of-login{
+    border:1px solid black;
+    color:black;
+    display:inline;
+    padding:3px;
+
+}
+.container-fluid{
+    padding-left:0;
+    padding-right:0;
+}
+
+.navbar-brand {
+    color: #fff;
+    cursor: pointer;
+    color:black;
+    padding:2px;
+    border:1px solid white;
+    border-radius:5px;
+    background:white;
+}
+
+.navbar-brand:hover{
+    color:white;
+    font-family:helvetica;
+    padding:2px;
+    background:black;
+    border-radius:5px;
+}
+
+.logo-brand{
+    width:45px;
+    height:40px;
+}
+
+.login-brand{
+    width:45px;
+    height:40px;
+    border-radius:50%;
+}
+
+.btn-group, .btn-secondary, .dropdown-toggle {
+    color: #ffffff;
+    background-color: black;
+    border: none;
+    padding: 5px 5px;
+}
+a{
+    color: #ffffff;
+}
+
+
+/* Header section styles end here */
+
+
+.paddingTB60 {padding:60px 0px 60px 0px;}
+.gray-bg {background: #F1F1F1 !important;}
+.about-title {}
+.about-title h1 {color: #535353; font-size:45px;font-weight:600;}
+.about-title span {color: #AF0808; font-size:45px;font-weight:700;}
+.about-title h3 {color: #535353; font-size:23px;margin-bottom:24px;}
+.about-title p {color: #7a7a7a;line-height: 1.8;margin: 0 0 15px;}
+.about-paddingB {padding-bottom: 12px;}
+.about-img {padding-left: 57px;}

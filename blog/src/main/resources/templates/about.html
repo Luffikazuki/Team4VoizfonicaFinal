@@ -1,0 +1,97 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        About | PhotoBlog
+    </title>
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width = device-width , initial-scale = 1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/aboutStyle.css}">
+
+</head>
+<body>
+<!-- Header / Navigation Starts-->
+<div class="container-fluid">
+
+    <nav class="navbar navbar-expand-sm bg-dark ">
+
+        <a class="nav-link headerFont" href="#">
+            Bloggest
+        </a>
+        <a class="nav-link headerFont" href="/">
+            Home
+        </a>
+
+        <a class="nav-link headerFont active" href="#">
+            About me
+        </a>
+        <div class="navbar-nav ml-auto">
+            <a th:href="login" class="nav-item nav-link">Login</a>
+            <a th:href="register" class="nav-item nav-link">Sign Up</a>
+
+        </div>
+
+    </nav>
+</div>
+
+<div class="about-section paddingTB60 gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-6">
+                <div class="about-title clearfix">
+                    <h1>About <span>Kishore Karthikeyan</span></h1>
+                    <h3>Photograph Blogger </h3>
+                    <p class="about-paddingB">Hey, bloggers! <br> Allow me to formally introduce myself to you: My name is Kishore Karthikeyan and I am a man who is passion about photography. Formally educated as an engineer
+                    , I am currently working as Associate software engineer in Prodapt Solutions Pvt. Ltd.</p>
+                    <p>Photography has been my passion since I was a child. I began my new venture by writings few blogs for my pics.
+                    And, I blog whenever I find myself down in life. Blogging helps in keeping my spirits high.</p>
+                    <p>If you share same interests, do follow me on social media.</p>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-6">
+                <div class="about-img">
+                    <img src="https://amazfitwatchfaces.com/pace/resource/img/5bcb8876e1b22_20102018.png" width ="70%">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+
+<footer class="page-footer">
+
+    <div class="container">
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a href="https://www.twitter.com/"><img id="footer-image" src = "images/twitter_icon.jpg"> </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.instagram.com/"> <img id="footer-image" src = "images/instagram_icon.jpg" ></a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.facebook.com/"> <img id="footer-image" src = "images/facebook_icon.png"> </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.youtube.com/">  <img id="footer-image" src = "images/youtube_icon.png" > </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.linkedin.com/"> <img id="footer-image" src = "images/link_icon.png" href="#"></a>
+            </li>
+        </ul>
+        <br>
+        <div class="footer-copyright text-center">Made with ♥ by Kishore Kart © 2019. All Rights Reserved </div>
+    </div>
+</footer>
+
+
+
+<!-- CDN's of js and jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
